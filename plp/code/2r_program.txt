@@ -1,0 +1,9 @@
+R1: Faça subtrair_a vá_para R2;
+R2: Faça subtrair_a vá_para R3;
+R3: Faça subtrair_a vá_para R4;
+R4: Se a_zero en tão vá_para Rx senão vá_para R5;
+R5: Faça subtrair_a vá_para R6;
+R6: Faça adicionar_b vá_para R7;
+R7: Faça adicionar_b vá_para R8;
+R8: Faça adicionar_b vá_para R9;
+R9: Faça adicionar_b vá_para R1;
