@@ -1,22 +1,24 @@
 # Teoria dos grafos
 
-Material e desafios da disciplina de teoria dos grafos.
+Códigos, exercicios e trabalhos da disciplina de teoria dos grafos.
 
 ## Rodando
 
-#### Docker
+#### Docker (recomendado)
 
+```bash
+docker build . -t <container_tag>
+docker run -it <container_tag> sh
+python3 <file_name>.py
 ```
-docker build container_name .
-docker run -it container_name sh
-python3 nome_arquivo.py
-```
+<container_tag> é o nome que o container terá  
+<file_name> é o nome do arquivo python  
 
-#### Python 3
-
+#### Python
+```bash
+python3 <file_name>.py
 ```
-python3 nome_arquivo.py
-```
+<file_name> é o nome do arquivo python
 
 ## Exercicios
 

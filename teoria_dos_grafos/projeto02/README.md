@@ -78,19 +78,20 @@ Gabi Vitoriano -> Bolinha -> Rodrigo Barros -> Yanna -> Priscila
   - Assuma linhas retas entre os vértices
   - Grafo direcionado, rotulado e ponderado
 
+
 ## Rodando
 
-#### Docker
+#### Docker (recomendado)
 
-```
-docker build container_name .
-docker run -it container_name sh
+```bash
+docker build . -t <container_tag>
+docker run -it <container_tag> sh
 python3 main.py
 ```
+<container_tag> é o nome que o container terá  
 
-#### Python 3
-
-```
+#### Python
+```bash
 python3 main.py
 ```
 

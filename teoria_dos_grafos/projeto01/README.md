@@ -60,16 +60,16 @@ Peso 3
 
 ## Rodando
 
-#### Docker
+#### Docker (recomendado)
 
-```
-docker build container_name .
-docker run -it container_name sh
+```bash
+docker build . -t <container_tag>
+docker run -it <container_tag> sh
 python3 projeto01.py
 ```
+<container_tag> é o nome que o container terá  
 
-#### Python 3
-
-```
+#### Python
+```bash
 python3 projeto01.py
 ```
