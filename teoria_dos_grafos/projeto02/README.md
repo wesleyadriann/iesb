@@ -78,20 +78,22 @@ Gabi Vitoriano -> Bolinha -> Rodrigo Barros -> Yanna -> Priscila
   - Assuma linhas retas entre os vértices
   - Grafo direcionado, rotulado e ponderado
 
+## Rodando
+
 #### Docker
 
 ```
 docker build container_name .
 docker run -it container_name sh
-python3 nome_arquivo.py
+python3 main.py
 ```
 
 #### Python 3
 
 ```
-python3 nome_arquivo.py
+python3 main.py
 ```
 
-### Links
+## Links
 
 [Graus decimais](https://pt.wikipedia.org/wiki/Graus_decimais "Graus decimais")

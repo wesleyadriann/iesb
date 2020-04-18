@@ -57,15 +57,18 @@ Peso 3
 - O trabalho deve ser enviado para o Blackboard;
 - **Ausência** da **apresentação ou submissão** do trabalho implica na **redução de 50% da nota**.
 
-## Executando
 
-##### Docker
+## Rodando
+
+#### Docker
 
 ```
-docker build .
+docker build container_name .
+docker run -it container_name sh
+python3 projeto01.py
 ```
 
-##### Python 3
+#### Python 3
 
 ```
 python3 projeto01.py
