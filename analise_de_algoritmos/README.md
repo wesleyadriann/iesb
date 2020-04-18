@@ -1,50 +1,30 @@
 Analise de Algoritmos
 ============
-Material e desafios da disciplina de analise de algoritmos IESB.
+Códigos, exercicios e trabalhos da  analise de algoritmos IESB.
 
 ## Rodando
 
-#### Docker
-Na raiz do projeto execute os comandos
+#### Docker (recomendado)
+```bash
+docker build . -t <container_tag>
+docker run -it <container_tag> sh
+python3 <file_name>.py
 ```
-docker build container_name .
-docker run -it container_name sh
-python3 nome_arquivo.py
-```
+<container_tag> é o nome que o container terá  
+<file_name> é o nome do arquivo python  
 
-#### Python 3
-
-Dentro da pasta **/code**, execute o comando
-
+#### Python
+```bash
+python3 <file_name>.py
 ```
-python3 nome_arquivo.py
-```
+<file_name> é o nome do arquivo python
 
-## Desafios/Exercicios
 
-#### Exercicio 01
-Implementar de forma iterativa e recursiva os seguintess algoritmos:
-- A) Somatorio dos valores de um vetor de tamanho N
-- B) Imprimir na tela N vezes a frase "HELLO WORLD"  
-Obs.:  
-- Calcular o tempo e cada uma das execuções
-- Executar 10X para:
-```
-N = 1  
-N = 10
-N = 100
-N = 1000
-N = 10000
-N = 100000
-N = 1000000
-N = 10000000
-N = 100000000
-N = 1000000000
-```
-#### Exercicio 02
-Implementar Fibonacci nas formas recursiva, iterativa e matematica  
-1 - Demonstre de forma matematica nas 3 complexidades  
-2 - Demonstre atraves da avaliacao de tempo/tamanho da emtrada a complexidade de cada uma das 3 implementações  
-3 - Qual das 3 implementações é mais rapida?  
-Formula matematica  
-![math](./images/exercise2.png)
+## Exercicios
+
+- **[Exercicio 01](./textos/exercicio01.md)**  | [Algoritmo](./algoritmos/exercicio01.py)
+- **[Exercicio 02](./textos/exercicio02.md)**  | [Algoritmo](./algoritmos/exercicio02.py)
+
+## Trabalhos
+
+- **[Trabalho 01](./textos/trabalho1.md)**  | [Algoritmo 1](./algoritmos/subsetSUMBk.py) | [Algoritmo 2](./algoritmos/subsetSUMDynamic.py) | [Algoritmo 3](./algoritmos/subsetSUMRecursive.py)

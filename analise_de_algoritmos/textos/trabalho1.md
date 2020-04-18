@@ -1,3 +1,5 @@
+## Tranalho 01
+#### [Algoritmo 1](./algoritmos/subsetSUMBk.py) | [Algoritmo 2](./algoritmos/subsetSUMDynamic.py) | [Algoritmo 3](./algoritmos/subsetSUMRecursive.py)
 
 #### 1
 - **a)** Implementar a solução recursiva do subset sum que informa se existe algum algum subconjunto que é igual a capaciadde informada;

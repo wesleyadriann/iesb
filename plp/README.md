@@ -1,5 +1,5 @@
-# Paradigmas de lingaugem de programação - PLP
-
+Paradigmas de lingaugem de programação - PLP - 1/2020
+============
 Códigos, exercicios e trabalhos da disciplina paradigmas de lingaugem de programação.
 
 ## Rodando
