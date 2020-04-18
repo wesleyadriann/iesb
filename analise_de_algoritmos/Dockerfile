@@ -1,5 +1,7 @@
 FROM python:3-alpine3.10
 
-WORKDIR /code
+WORKDIR /algoritmos
 
-COPY ./code .
+COPY ./algoritmos .
+
+CMD [ "sh" ]
