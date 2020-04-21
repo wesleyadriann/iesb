@@ -23,3 +23,4 @@ python3 <file_name>.py
 ## Exercicios
 
 - **[2Reg Machine](./2reg_machine/README.md)**  | [Algoritmo](./2reg_machine/code/__main__.py)
+- **[Abstração de Matriz](./textos/Abstracao_de_matriz.md)** | [Algoritmo](./algoritmos/Matriz.py)

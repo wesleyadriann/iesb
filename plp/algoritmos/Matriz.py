@@ -35,7 +35,6 @@ class Matriz():
             print(linha)
         print('\n')
 
-
     def somar(self, matriz = [[]]):
         if(self.validaOrdem(matriz)):
             novaMatriz = self.matriz[:]
