@@ -21,18 +21,11 @@ class SubSet():
             return False
 
         return self.subSetRec(sumSubSet - self.__setNumbers[index] , index + 1) or self.subSetRec(sumSubSet ,index + 1)
-
-    def startAllSubSet(self):
-        pass
-
-    def allSubSetRec(self, setNumbers,  sets = []):
-        pass
     
-
 
 if (__name__ == '__main__'):
     setA = [2,3,7,8,10]
     sumSubSetA = 11
 
     subset = SubSet(setA, sumSubSetA)
-        print(subset.existSubSet == True and "Exists Subset")
+    print(subset.existSubSet == True and "Exists Subset")
