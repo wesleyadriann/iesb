@@ -14,7 +14,7 @@ class Arabico(Numero):
         numeroExtenso.append(self._dezenaExtenso())
         numeroExtenso.append(self._unidadeExtenso())
 
-        return ' '.join(numeroExtenso)
+        return ' e '.join(numeroExtenso)
 
     def _unidadeExtenso(self):
         dezena = super()._getDezena()
