@@ -18,7 +18,7 @@ class Ordinal():
 
 
     def _unidadeExtenso(self):        
-        unidade = self._getUnidade()
+        unidade = super()._getUnidade()
         numeros = {
             0: '',
             1: 'primero',
@@ -35,7 +35,7 @@ class Ordinal():
         return numeros[unidade]
 
     def _dezenaExtenso(self):
-        dezena = self._getDezena()
+        dezena = super()._getDezena()
         numeros = {
             0: '',
             1: 'décimo',
@@ -52,7 +52,7 @@ class Ordinal():
         return numeros[dezena]
 
     def _centenaExtenso(self):
-        centena = self._getDezena()
+        centena = super()._getCentena()
         numeros = {
             0: '',
             1: 'centésimo',
