@@ -3,7 +3,7 @@
 
 from Numero import Numero
 
-class Romano():
+class Romano(Numero):
     def __init__(self, numero):
         super().__init__()
 
