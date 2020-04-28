@@ -5,7 +5,7 @@ from Numero import Numero
 
 class Romano():
     def __init__(self, numero):
-        self.__numero = numero
+        super().__init__()
 
-    def romano_extenso(self):
+    def extenso(self):
         pass

@@ -6,7 +6,7 @@ class Numero():
         if(numero >= 1 and numero <= 999)
             self.__numero = numero
 
-    def _extenso(self):
+    def extenso(self):
         pass
 
     def _getUnidade(self):

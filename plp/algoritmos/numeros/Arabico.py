@@ -3,9 +3,9 @@
 
 from Numero import Numero
 
-class Arabico():
+class Arabico(Numero):
     def __init__(self, numero):
-        self.__numero = numero
+        super().__init__()
 
-    def arabico_extenso(self):
+    def extenso(self):
         pass
