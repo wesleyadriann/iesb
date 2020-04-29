@@ -24,3 +24,4 @@ python3 <file_name>.py
 
 - **[2Reg Machine](./2reg_machine/README.md)**  | [Algoritmo](./2reg_machine/code/__main__.py)
 - **[Abstração de Matriz](./textos/Abstracao_de_matriz.md)** | [Algoritmo](./algoritmos/Matriz.py)
+- **[Números por extenso](./textos/Numeros_por_extenso.md)** | [Algoritmo](./algoritmos/numeros/App.py)
