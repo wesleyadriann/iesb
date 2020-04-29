@@ -5,7 +5,7 @@ from Numero import Numero
 
 class Ordinal(Numero):
     def __init__(self, numero):
-        super().__init__()
+        super().__init__(numero)
 
     def extenso(self):
         numeroExtenso = []
@@ -14,7 +14,11 @@ class Ordinal(Numero):
         numeroExtenso.append(self._dezenaExtenso())
         numeroExtenso.append(self._unidadeExtenso())
 
-        return ' '.join(numeroExtenso)
+        while('' in numeroExtenso):
+            numeroExtenso.remove('')
+
+        print('\nNúmero ordinal')
+        print(' '.join(numeroExtenso))
 
 
     def _unidadeExtenso(self):        

@@ -5,7 +5,7 @@ from Numero import Numero
 
 class Romano(Numero):
     def __init__(self, numero):
-        super().__init__()
+        super().__init__(numero)
 
     def extenso(self):
         numeroExtenso = []
@@ -14,7 +14,8 @@ class Romano(Numero):
         numeroExtenso.append(self._dezenaExtenso())
         numeroExtenso.append(self._unidadeExtenso())
 
-        return ''.join(numeroExtenso)
+        print('\nNúmero Romano')
+        print(''.join(numeroExtenso))
 
     def _unidadeExtenso(self):
         unidade = super()._getUnidade()

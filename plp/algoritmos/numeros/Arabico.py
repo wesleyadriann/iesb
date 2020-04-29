@@ -5,7 +5,7 @@ from Numero import Numero
 
 class Arabico(Numero):
     def __init__(self, numero):
-        super().__init__()
+        super().__init__(numero)
 
     def extenso(self):
         numeroExtenso = []
@@ -14,12 +14,16 @@ class Arabico(Numero):
         numeroExtenso.append(self._dezenaExtenso())
         numeroExtenso.append(self._unidadeExtenso())
 
-        return ' e '.join(numeroExtenso)
+        while('' in numeroExtenso):
+            numeroExtenso.remove('')
+
+        print('\nNúmero arábico')
+        print(' e '.join(numeroExtenso))
 
     def _unidadeExtenso(self):
         dezena = super()._getDezena()
-            if(dezena == 1):
-                return ''
+        if(dezena == 1):
+            return ''
 
         unidade = super()._getUnidade()
         numeros = {
@@ -34,7 +38,6 @@ class Arabico(Numero):
             8: 'oito',
             9: 'nove'
         }
-
         return numeros[unidade]
 
     def _dezenaExtenso(self):
