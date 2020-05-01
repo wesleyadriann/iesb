@@ -5,7 +5,7 @@
 #define tam 100000000
 #define execucoes 5
 #define multiplicador 2
-#define divisor 1/(multi*2)
+#define divisor (1/(multiplicador*2))
 
 typedef struct tabela_dinamica {
   long int tamanho;
@@ -21,7 +21,7 @@ void remover(tabela_dinamica * tabela);
 
 int main() {
   int i = 0;
-  double tempo_inicial, tempo_final = 0.0;
+  double tempo_inicial, tempo_final, tempos = 0.0;
 
   tabela_dinamica * tabela1;
   tabela1 = aloca_tabela();
@@ -35,11 +35,15 @@ int main() {
     for(j=0; j < tam; j++) {
       incluir(tabela1, 1);
     }
+    for(j=0; j < tam; j++) {
+      remover(tabela1);
+    }
     tempo_final_execucao = omp_get_wtime();
+    tempos = (tempo_final_execucao - tempo_inicial_execucao) + tempos;
     printf("Execução %d , tempo %lf \n", i, tempo_final_execucao - tempo_inicial_execucao);
   }
   tempo_final = omp_get_wtime();
-  printf("Execução total, tempo %lf", tempo_final - tempo_inicial);
+  printf("Execução total, tempo total %lf, tempo medio %lf", tempo_final - tempo_inicial, tempos / execucoes);
 
   return 0;
 };
@@ -66,7 +70,7 @@ void incluir(tabela_dinamica * tabela, int x) {
   if(tabela->tamanho == tabela->qtd) {
     long int * vetor_aux = NULL;
 
-    vetor_aux = aloca_vetor(multiplicador * tabela->tamanho);
+    vetor_aux = aloca_vetor(tabela->tamanho * multiplicador);
     copia(tabela->vet, vetor_aux, tabela->qtd);
     free(tabela->vet);
     tabela->vet = vetor_aux;
@@ -78,6 +82,24 @@ void incluir(tabela_dinamica * tabela, int x) {
 }
 
 void remover(tabela_dinamica * tabela) {
+  if(tabela->qtd == 0) {
+    printf("\n Tabela vazia");
+  }
+
+  long int tamanho_divisor = tabela->tamanho * divisor;
+
+  tabela->vet[tabela->qtd - 1] = 0;
+  tabela->qtd--;
+
+  if(tabela->qtd == tamanho_divisor && tabela->qtd != 1) {
+    long int * vetor_aux = NULL;
+
+    vetor_aux = aloca_vetor(tabela->tamanho / multiplicador);
+    copia(tabela->vet, vetor_aux, tabela->qtd);
+    free(tabela->vet);
+    tabela->vet = vetor_aux;
+    tabela->tamanho = tabela->tamanho / multiplicador;
+  }
 
 };
 
