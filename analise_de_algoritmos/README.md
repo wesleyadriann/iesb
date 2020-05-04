@@ -8,16 +8,32 @@ Códigos, exercicios e trabalhos da  analise de algoritmos IESB.
 ```bash
 docker build . -t <container_tag>
 docker run -it <container_tag> sh
+```
+##### Python
+```
 python3 <file_name>.py
 ```
-<container_tag> é o nome que o container terá  
-<file_name> é o nome do arquivo python  
+##### C
+```
+./build.sh <file_name>.c <file_name_out>
+```
 
-#### Python
-```bash
+<container_tag> é o nome que o container terá.  
+<file_name> é o nome do arquivo.  
+<file_name_out> é o nome do arquivo após compilado.  
+
+#### Sem Docker
+
+##### Python
+```
 python3 <file_name>.py
 ```
-<file_name> é o nome do arquivo python
+##### C
+```
+./build.sh <file_name>.c <file_name_out>
+```
+<file_name> é o nome do arquivo.  
+<file_name_out> é o nome do arquivo após compilado.  
 
 
 ## Exercicios
