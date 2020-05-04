@@ -1,4 +1,4 @@
-Analise de Algoritmos
+Analise de Algoritmos - 1/2020
 ============
 Códigos, exercicios e trabalhos da  analise de algoritmos IESB.
 
