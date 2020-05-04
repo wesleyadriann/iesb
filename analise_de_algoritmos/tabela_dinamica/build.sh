@@ -2,9 +2,9 @@
 echo "Deleting old version..."
 rm *.out
 
-FILE=$0
-OUTNAME=$1
+FILE=$1
+OUTNAME=$2
 
 echo "Compile and run...\n"
-gcc -o tabela.out tabela_dinamica.c -fopenmp && \
-./tabela.out
+gcc -o $OUTNAME.out $FILE -fopenmp && \
+./$OUTNAME.out
