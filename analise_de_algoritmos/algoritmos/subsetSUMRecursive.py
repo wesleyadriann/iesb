@@ -9,7 +9,7 @@ class SubSet():
 
     @property
     def existSubSet(self):
-        return self.startSubSet(self.__sumSubSet) == True
+        return self.subSetRec(self.__sumSubSet) == True
 
     def subSetRec(self, sumSubSet, index = 0):
         if(sumSubSet == 0):
@@ -21,7 +21,7 @@ class SubSet():
             return False
 
         return self.subSetRec(sumSubSet - self.__setNumbers[index] , index + 1) or self.subSetRec(sumSubSet ,index + 1)
-    
+
 
 if (__name__ == '__main__'):
     setA = [2,3,7,8,10]

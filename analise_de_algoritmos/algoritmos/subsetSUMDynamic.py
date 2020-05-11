@@ -32,13 +32,12 @@ class SubSet():
         for i in range(len(self.__setNumbers) - 1, -1 ,-1):
             if(sum(subset) < self.__sumSubSet):
                 for j in range(len(self.__matrix[0]) - 1, -1, -1):
-                    print(j)
                     if(self.__matrix[i][j] == True):
                         if((self.__matrix[i-1][j] is False) and (self.__matrix[i - 1][j - self.__setNumbers[i]] == True)):
                             subset.append(self.__setNumbers[i])
                         break
 
-        print(subset)     
+        print(f'Subset: {subset}')
 
     def printMatrix(self):
         for line in self.__matrix:
