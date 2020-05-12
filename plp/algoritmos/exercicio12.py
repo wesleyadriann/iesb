@@ -23,7 +23,7 @@ def main():
                 raise Exception('A entrada deve ser um numero inteiro.')
 
             except OverflowError:
-                raise('Soma dos valores é muito grande.')
+                raise Exception('Soma dos valores é muito grande.')
 
         print(f'Soma dos quadrados igual: {soma}')
 
