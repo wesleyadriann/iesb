@@ -1,7 +1,10 @@
 
 # -*- coding: utf-8 -*-
 
+from time import time
+
 def main(distancia, individuos):
+    inicial = time()
     if(distancia == 0):
         return print("\nNumero maximo de ladroes pegos: 0\n")
 
@@ -27,9 +30,16 @@ def main(distancia, individuos):
         else:
             r += 1
 
-    print(f'\nNumero maximo de ladrões pegos: {pegos}\n')
+    print(f'\n\nTempo de execução: {time() - inicial}')
+    print(f'\n\nNumero maximo de ladrões pegos: {pegos}\n\n')
 
 if __name__=='__main__':
     distancia = 2
-    individuos = ['P', 'L', 'L', 'P', 'L']
+    individuos = [
+        'P', 'L', 'L', 'P', 'L',
+        'P', 'L', 'L', 'P', 'L',
+        'P', 'L', 'L', 'P', 'L',
+        'P', 'L', 'L', 'P', 'L',
+    ]
+    print(len(individuos))
     main(distancia, individuos)
