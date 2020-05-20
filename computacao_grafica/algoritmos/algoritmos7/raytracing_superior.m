@@ -5,9 +5,6 @@ cena = X;
 tamanho_cena = length(cena);
 projecao = ones(tamanho_cena);
 
-% A variavel coluna representa o eixo X da cena
-% A variavel linha representa o eixo Y da cena
-%  variavel profundidade representa o eixo Z da cena
 for eixo_z = 1:tamanho_cena
     for eixo_y = 1:tamanho_cena
         for eixo_x = 1:tamanho_cena
