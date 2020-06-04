@@ -1,4 +1,4 @@
-load pentagono.mat
+load quadrilatero.mat
 
 % X é a varial que esta a cena
 cena = X;

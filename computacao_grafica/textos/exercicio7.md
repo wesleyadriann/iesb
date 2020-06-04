@@ -1,5 +1,5 @@
 ## Exercicio 7
-#### [Algoritmo](./algoritmos/algoritmos7/raytracing_frontal.m)
+#### [Algoritmo](../algoritmos/algoritmos7/raytracing_frontal.m)
 
 
 ### PROJEÇÃO PARALELA – RAY TRACING
