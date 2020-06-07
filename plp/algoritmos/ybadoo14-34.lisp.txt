@@ -1,0 +1,13 @@
+(setq n 3)
+
+(defun calcula_pi(novo_n d bool)
+    (if (> novo_n n)
+        (return-from calcula_pi 0)
+    )
+    (if (= bool 0)
+	(- (/ 4 d) (calcula_pi (+ novo_n 1) (+ d 2) 0))
+	(+ (/ 4 d) (calcula_pi (+ novo_n 1) (+ d 2) 1))
+    )
+)
+
+(print (float (calcula_pi 1 1 0)))
