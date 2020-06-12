@@ -144,6 +144,18 @@ casados(Esposa, Esposo) :-
 sogro(Sogro, Genro_Nora) :-
 % Regra sogra
 sogra(Sogra, Genro_Nora) :-
+    feminino(Sogra),
+    progenitor(Sogra, Filho_a),
+    progenitor(Filho_a, Neto_a),
+    progenitor(Genro_Nora, Neto_a).
+
+sogra(Sogra, Genro_Nora) :-
+	progenitor(Genro_Nora, Neto_a),
+    progenitor(Sogra, Filho_a_Sogra),
+    progenitor(Filho_a_Sogra, Neto_a),
+	feminino(Sogra).
+
+?- sogra(X, 'Marcelo'), write(X), nl.
 % Regra genro
 genro(Genro, Sogro_a) :-
 % Regra nora

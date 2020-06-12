@@ -1,4 +1,4 @@
-(setq n 3)
+(setq n 5)
 
 (defun calcula_pi(novo_n d bool)
     (if (> novo_n n)
@@ -10,4 +10,7 @@
     )
 )
 
-(print (float (calcula_pi 1 1 0)))
+(if (< n 1)
+    (print (nil))
+    (print (float (calcula_pi 1 1 0)))
+)
