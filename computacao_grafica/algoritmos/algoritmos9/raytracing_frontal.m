@@ -1,4 +1,5 @@
 function projecao_final = raytracing_frontal(cena)
+    "Função raytracing frontal iniciada"
     tamanho_cena = length(cena);
     projecao = ones(tamanho_cena);
 
@@ -14,5 +15,5 @@ function projecao_final = raytracing_frontal(cena)
     end
 
     imshow(projecao)
-
-projecao_final = projecao
+    "Função raytracing frontal finalizada"
+projecao_final = projecao;
