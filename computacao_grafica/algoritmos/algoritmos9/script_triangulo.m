@@ -1,8 +1,8 @@
 "Script triangulo iniciado"
 m_vertices = [
-    20, 80, 55;
-    78, 31, 44;
-    79, 150, 114
+    75, 15, 10;
+    80, 90, 20;
+    15, 55, 85
 ];
 
 m_arestas = [
@@ -11,6 +11,6 @@ m_arestas = [
     2, 3
 ];
 
-cena = rasteriza_objeto(m_vertices, m_arestas, 200, 200, 200);
+cena = rasteriza_objeto(m_vertices, m_arestas, 100, 100, 100);
 projecao = raytracing_frontal(cena);
 "Script triangulo finalizado"
