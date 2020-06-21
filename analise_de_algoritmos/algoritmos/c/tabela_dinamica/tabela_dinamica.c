@@ -40,10 +40,10 @@ int main() {
     }
     tempo_final_execucao = omp_get_wtime();
     tempos = (tempo_final_execucao - tempo_inicial_execucao) + tempos;
-    printf("Execução %d , tempo %lf \n", i, tempo_final_execucao - tempo_inicial_execucao);
+    printf("Execução %d - tempo %lf \n", i, tempo_final_execucao - tempo_inicial_execucao);
   }
   tempo_final = omp_get_wtime();
-  printf("Execução total, tempo total %lf, tempo medio %lf", tempo_final - tempo_inicial, tempos / execucoes);
+  printf("Execuções finalizadas\nTempo total %lf - Tempo medio %lf", tempo_final - tempo_inicial, tempos / execucoes);
 
   return 0;
 };
