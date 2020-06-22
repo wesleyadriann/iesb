@@ -1,30 +1,33 @@
 #include <stdio.h>
-#include <math.h>
 #include <stdlib.h>
+#include <math.h>
 #include "omp.h"
 
 #define execucoes 5
 
-float karatsuba_ofman(long long u, long long v, float n);
+long long karatsuba_ofman(long long u, long long v, int n);
+int count_number(long long number);
 
 int main() {
-  long long number1 = 2406994;
-  long long number2 = 141421312561;
-  int digits_number_1 = strlen(number1);
-  int digits_number_2 = strlen(number2);
-  float max_digits = digits_number_1 > digits_number_2 ? digits_number_1 : digits_number_2;
+  long long number1, number2;
 
-  double tempo_inicial, tempo_final, tempos = 0.0;
+  number1 = 256489123;
+  number2 = 156438949;
+
+  int digits_number_1 = count_number(number1);
+  int digits_number_2 = count_number(number2);
+
+  int n = (int) digits_number_1 > digits_number_2 ? digits_number_1 : digits_number_2;
 
   int i = 0;
-
+  float tempo_inicial, tempo_final, tempos = 0.0;
   tempo_inicial = omp_get_wtime();
   for(i = 0; i < execucoes; i++) {
-    double tempo_inicial_execucao, tempo_final_execucao = 0.0;
-    float multiplication = karatsuba_ofman(number1, number2, max_digits);
+    float tempo_inicial_execucao, tempo_final_execucao = 0.0;
+    long long multiplication = karatsuba_ofman(number1, number2, n);
     tempo_final_execucao = omp_get_wtime();
     tempos = (tempo_final_execucao - tempo_inicial_execucao) + tempos;
-    printf("Resultado multiplicacao: %lf", multiplication);
+    printf("Resultado multiplicacao: %lld \n", multiplication);
     printf("Execução %d - tempo %lf \n", i, tempo_final_execucao - tempo_inicial_execucao);
   }
 
@@ -34,21 +37,37 @@ int main() {
   return 0;
 }
 
-float karatsuba_ofman(long long  u, long long v, float n) {
-  if(n < 3) {
+long long karatsuba_ofman(long long u, long long v, int n) {
+  if(u <= 100 || v <= 100) {
     return u * v;
   } else {
-    float m = (2/n);
-    long int ten_pow_m = pow(10, m);
-    long long p = u / ten_pow_m;
-    long long q = u % ten_pow_m;
-    long long r = v / ten_pow_m;
-    long long s = v % ten_pow_m;
 
-    float pr = karatsuba_ofman(p, r, m);
-    float qs = karatsuba_ofman(q, s, m);
-    float y = karatsuba_ofman(p+q, r+s, m+1);
-    return (pr * pow(10, (2 * m)) + (y - pr - qs) * ten_pow_m + qs);
+    long long p ,q ,r ,s, pr, qs, z;
+
+    int m = floor(n / 2);
+    int ten_pow_m = pow(10, m);
+
+    p = floor(u / ten_pow_m);
+    q = u % ten_pow_m;
+    r = floor(v / ten_pow_m);
+    s = v % ten_pow_m;
+
+    pr = karatsuba_ofman(p, r, m);
+    qs = karatsuba_ofman(q, s, m);
+    z = karatsuba_ofman(p+q, r+s, m+1) - pr - qs;
+
+    int ten_pow_2m = pow(10, (2 * m));
+
+    return (pr * ten_pow_2m + z * ten_pow_m + qs);
   }
-  return 0;
+}
+
+int count_number(long long number) {
+	int count = 0;
+	while (number >= 1) {
+    number = number / 10;
+    count++;
+  }
+  return count;
+
 }
