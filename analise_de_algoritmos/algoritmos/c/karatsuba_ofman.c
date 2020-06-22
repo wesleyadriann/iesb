@@ -3,7 +3,7 @@
 #include <math.h>
 #include "omp.h"
 
-#define execucoes 5
+#define execucoes 1000000
 
 long long karatsuba_ofman(long long u, long long v, int n);
 int count_number(long long number);
@@ -11,9 +11,9 @@ int count_number(long long number);
 int main() {
   long long number1, number2;
 
-  number1 = 256489123;
-  number2 = 156438949;
-
+  number1 = 1000000000000000000;
+  number2 = 1000000000000000000;
+  return 0;
   int digits_number_1 = count_number(number1);
   int digits_number_2 = count_number(number2);
 
