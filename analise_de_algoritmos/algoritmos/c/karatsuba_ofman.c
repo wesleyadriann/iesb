@@ -11,9 +11,9 @@ int count_number(long long number);
 int main() {
   long long number1, number2;
 
-  number1 = 1000000000000000000;
-  number2 = 1000000000000000000;
-  return 0;
+  number1 = 4561321;
+  number2 = 145698;
+
   int digits_number_1 = count_number(number1);
   int digits_number_2 = count_number(number2);
 
