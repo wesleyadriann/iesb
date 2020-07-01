@@ -38,9 +38,10 @@ python3 <file_name>.py
 
 ## Exercicios
 
-- **[Exercicio 01](./textos/exercicio01.md)**  | [Algoritmo](./algoritmos/exercicio01.py)
-- **[Exercicio 02](./textos/exercicio02.md)**  | [Algoritmo](./algoritmos/exercicio02.py)
+- **[Exercicio 01](./textos/exercicio01.md)**  | [Algoritmo](./algoritmos/python/exercicio01.py)
+- **[Exercicio 02](./textos/exercicio02.md)**  | [Algoritmo](./algoritmos/python/exercicio02.py)
+- **[Karatsuba Ofman](./textos/karatsuba_ofman.md)** | [Algoritmo](./algoritmos/c/karatsuba_ofman.c)
 
 ## Trabalhos
 
-- **[Trabalho 01](./textos/trabalho1.md)**  | [Algoritmo 1](./algoritmos/subsetSUMBk.py) | [Algoritmo 2](./algoritmos/subsetSUMDynamic.py) | [Algoritmo 3](./algoritmos/subsetSUMRecursive.py)
+- **[Trabalho 01](./textos/trabalho1.md)**  | [Algoritmo 1](./algoritmos/python/subsetSUMBk.py) | [Algoritmo 2](./algoritmos/python/subsetSUMDynamic.py) | [Algoritmo 3](./algoritmos/python/subsetSUMRecursive.py)

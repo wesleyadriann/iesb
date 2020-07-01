@@ -1,5 +1,5 @@
 ## Exercicio 02
-#### [Algoritmo](../algoritmos/exercicio02.py)
+#### [Algoritmo](../algoritmos/python/exercicio02.py)
 
 Implementar Fibonacci nas formas recursiva, iterativa e matematica  
 1 - Demonstre de forma matematica nas 3 complexidades

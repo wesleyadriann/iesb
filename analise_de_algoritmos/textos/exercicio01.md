@@ -1,5 +1,5 @@
 ## Exercicio 01
-#### [Algoritmo](../algoritmos/exercicio01.py)
+#### [Algoritmo](../algoritmos/python/exercicio01.py)
 
 Implementar de forma iterativa e recursiva os seguintess algoritmos:
 - A) Somatorio dos valores de um vetor de tamanho N
