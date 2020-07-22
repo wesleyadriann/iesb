@@ -1,6 +1,11 @@
 
 IESB - Atividades
 ============
+![](https://img.shields.io/github/languages/count/wesleyadriann/iesb?style=flat-square)
+![](https://img.shields.io/github/languages/top/wesleyadriann/iesb?style=flat-square)
+![](https://img.shields.io/github/last-commit/wesleyadriann/iesb?style=flat-square)
+![](https://img.shields.io/github/license/wesleyadriann/iesb?style=flat-square)
+![](https://img.shields.io/github/repo-size/wesleyadriann/iesb?style=flat-square)
 
 ## 📝 Descrição
 Códigos, exercicios e trabalhos das disciplinas.
