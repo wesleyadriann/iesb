@@ -5,7 +5,7 @@
 int valida_cpf(char cpf_full[]);
 
 int main() {
-  char cpf_full[] = "04877019170";
+  char cpf_full[] = "";
 
   int is_valid = valida_cpf(cpf_full);
   if(is_valid) {

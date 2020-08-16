@@ -16,7 +16,7 @@ Códigos, exercicios e trabalhos das disciplinas.
 - [Paradigmas de linguagem de programação](./plp)
 - [Analise de Algoritmos](./analise_de_algoritmos)
 - [Computação Gráfica](./computacao_grafica)
-- [Avulsos](./avulsos)
+- [Algoritmos Avulsos](./algoritmos_avulsos)
 
 ## 👥 Autores
 - [Wesley Adriann](https://github.com/WesleyAdriann/iesb/commits?author=WesleyAdriann)
