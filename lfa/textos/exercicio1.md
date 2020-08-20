@@ -1,5 +1,5 @@
 ## Exercicio 1
-#### [Respostas](#resposta-1)
+#### [Respostas](#respostas-1)
 
 **a)** *01.02.72* - Apresente os possíveis prefixos da palavra **associatividade**.   
 **b)** *01.03.23* - Apresente as possíveis subpalavras da palavra **expressão**.   
