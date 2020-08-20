@@ -12,10 +12,11 @@ Códigos, exercicios e trabalhos das disciplinas.
 
 ## 📄 Disciplinas
 
-- [Teoria dos grafos](./teoria_dos_grafos)
-- [Paradigmas de linguagem de programação](./plp)
-- [Analise de Algoritmos](./analise_de_algoritmos)
-- [Computação Gráfica](./computacao_grafica)
+- [Teoria dos grafos - 2/2019](./teoria_dos_grafos)
+- [Computação Gráfica - 1/2020](./computacao_grafica)
+- [Paradigmas de linguagem de programação - 1/2020](./plp)
+- [Analise de Algoritmos - 1/2020](./analise_de_algoritmos)
+- [Linguagens Formais e Autômatos - 2/2020](./lfa)
 - [Algoritmos Avulsos](./algoritmos_avulsos)
 
 ## 👥 Autores
