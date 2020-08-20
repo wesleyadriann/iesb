@@ -13,4 +13,4 @@
 ```
 **b)** *01.06.18* - Apresente dez palavras possíveis sobre a linguagem *L* = {ω ∈ {a, b, c}* | ω = α^2}.   
 
-#### Resposta
+### Respostas

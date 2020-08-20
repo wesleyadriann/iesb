@@ -4,5 +4,5 @@ Códigos, exercicios e trabalhos da disciplina paradigmas de lingaugem de progra
 
 ## Exercicios
 
-- **[Exercicio 1](./textos/exercicio1.md#exercicio-1)** | [Resposta](./textos/reposta_exercicio1.md#resposta)
+- **[Exercicio 1](./textos/exercicio1.md#exercicio-1)** | [Resposta](./textos/exercicio1.md#resposta)
 
