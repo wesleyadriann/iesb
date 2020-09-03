@@ -15,8 +15,8 @@ class Code:
 
         for i in range(nind):
             for j in range(ncrom):
-                inf = self.cromlim[j][i]
-                sup = self.cromlim[j][2]
+                inf = self.cromlim[j][0]
+                sup = self.cromlim[j][1]
                 aux = int(((self.pop[i][j]-inf)/(sup-inf))*(pow(2, self.lbits[j])-1))
                 aux = int(bin(aux)[2:])
                 if(j==1):

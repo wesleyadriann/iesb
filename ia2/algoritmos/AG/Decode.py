@@ -15,8 +15,8 @@ class Decode():
 
         for i in range(nind):
             for j in range(ncrom):
-                inf = self.cromlim[j][1]
-                sup = self.cromlim[j][2]
+                inf = self.cromlim[j][0]
+                sup = self.cromlim[j][1]
                 aux = int(self.binpop, 2)
                 aux = (aux*(sup-inf))/(pow(2, self.lbits[j])-1)+inf
                 self.decode[i][j]
