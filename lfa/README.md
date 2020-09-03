@@ -1,6 +1,6 @@
 Linguagens Formais e Autômatos - LFA - 2/2020
 ============
-Códigos, exercicios e trabalhos da disciplina paradigmas de lingaugem de programação.
+Códigos, exercicios e trabalhos da disciplina linguagens formais e autômatos.
 
 ## Exercicios
 
