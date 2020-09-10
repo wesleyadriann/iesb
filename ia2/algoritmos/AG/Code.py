@@ -1,7 +1,13 @@
 
 # -*- coding: utf-8 -*-
 
+# pop - populacao a ser codificada
+# ncrom - numero de cromossomos (parametros) por individuo
+# comlim - matrix (ncrom x 2) contendo os limites superior e inferior para os cromossomos (parametros)
+# lbits - vetor ncrom contendo o numero de bits para cada cromossomo
+
 class Code:
+
     def __init__(self, pop, cromlim, lbits):
         self.pop = pop
         self.cromlim = cromlim

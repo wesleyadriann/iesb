@@ -18,7 +18,3 @@ class Fitness:
         for i in range(ncrom):
             func = func - pow(x[i], 2)
         return func
-<<<<<<< HEAD
-=======
-
->>>>>>> 2b721d6e9b02efe45cb8fb6a46bde09b9d04b4f2
