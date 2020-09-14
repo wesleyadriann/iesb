@@ -5,7 +5,7 @@
 # comlim - matrix (ncrom x 2) contendo os limites superior e inferior para os cromossomos (parametros)
 # ncrom - numero de cromossomos (parametros) por individuo
 
-from random import random
+from random import randint
 
 class NewPop():
 
@@ -20,5 +20,5 @@ class NewPop():
             for j in range(ncrom):
                 inf = self.cromlim[j][0]
                 sup = self.cromlim[j][1]
-                self.new_pop[i][j] = random() * (sup-inf) + inf
+                self.new_pop[i][j] = randint(0, 2) * (sup-inf) + inf
         return self.new_pop
