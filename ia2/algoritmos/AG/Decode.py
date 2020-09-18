@@ -11,7 +11,7 @@ class Decode():
         self.binpop = binpop
         self.cromlim = cromlim
         self.lbits = lbits
-        self.code = [[None]*len(cromlim)]*len(binpop)
+        self.__pop = [[None]*len(cromlim)]*len(binpop)
 
     def decode(self):
         nind = len(self.pop)
@@ -24,4 +24,4 @@ class Decode():
                 sup = self.cromlim[j][1]
                 aux = int(self.binpop, 2)
                 aux = (aux*(sup-inf))/(pow(2, self.lbits[j])-1)+inf
-                self.decode[i][j]
+                self.__pop[i][j]
