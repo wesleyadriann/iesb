@@ -11,11 +11,11 @@ class NewPop():
     def __init__(self, nind, cromlim):
         self.__nind = nind
         self.__cromlim = cromlim
-        self.__new_ṕop = [[None]*len(cromlim)]*nind
+        self.__new_pop = [[None]*len(cromlim)]*nind
 
     @property
-    def new_ṕop(self):
-        return self.__new_ṕop
+    def new_pop(self):
+        return self.__new_pop
 
     def gerar(self):
         ncrom = len(self.__cromlim)
@@ -23,4 +23,4 @@ class NewPop():
             for j in range(ncrom):
                 inf = self.__cromlim[j][0]
                 sup = self.__cromlim[j][1]
-                self.__new_ṕop[i][j] = randint(0, 1000) * (sup-inf) + inf
+                self.__new_pop[i][j] = randint(0, 1000) * (sup-inf) + inf
