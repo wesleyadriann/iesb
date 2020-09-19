@@ -12,6 +12,6 @@ if __name__ == "__main__":
     pop = NewPop(pop_size, cromlim)
     pop.gerar()
     print(pop.new_ṕop)
-    code = Code(pop.new_ṕop, cromlim, 10)
+    code = Code(pop.new_pop, cromlim, 10)
     code.code()
     print(code.binpop)
