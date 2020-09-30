@@ -8,6 +8,7 @@ class DigraphDFS():
         self.visited_DFS = [False for i in range(len(v) + 1)]
         self.visitation_order = []
         self.with_cycle = False
+        self.counter = 0
 
     def insert_edge(self, v, w):
         self.adj[v].append(w)
@@ -33,6 +34,13 @@ class DigraphDFS():
             print('Há ciclos nesse grafo.')
         else:
              print('Não ciclos nesse grafo.')
+
+    def unrelated(self):
+        for i, edges in enumerate(self.adj):
+            for j in edges:
+                if(i not in self.adj[j]):
+                    self.counter += 1
+        print(int(self.counter / 2))
 
 
 
@@ -66,4 +74,5 @@ if __name__ == "__main__":
 
     graph.DFS()
     graph.cycle()
+    graph.unrelated()
 
