@@ -1,7 +1,5 @@
 Inteligência Artificial II - IA2 - 2/2020
-============
-Códigos, exercicios e trabalhos da disciplina inteligência artificial II.
-
+===
 ## Exercicios
 
 - **[Exercicio 01](./textos/exercicio01.md)**  | [Algoritmo](./algoritmos/AG/NewPop.py)

@@ -1,5 +1,5 @@
 Avulsos
-============
+===
 
 Algoritmos avulsos
 

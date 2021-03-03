@@ -1,6 +1,5 @@
 Teoria dos grafos - 2/2019
-============
-Códigos, exercicios e trabalhos da disciplina de teoria dos grafos.
+===
 
 ## Rodando
 
