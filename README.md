@@ -18,6 +18,7 @@ Códigos, exercicios e trabalhos das disciplinas.
 - [Analise de Algoritmos - 1/2020](./analise_de_algoritmos)
 - [Linguagens Formais e Autômatos - 2/2020](./lfa)
 - [Programação Paralela - 1/2021](./programacao_paralela)
+- [Compiladores - 1/2021](./compiladores)
 - [Algoritmos Avulsos](./algoritmos_avulsos)
 
 ## 👥 Autores

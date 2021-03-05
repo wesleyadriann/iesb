@@ -1,0 +1,10 @@
+10 input a
+15 if a == 0 goto 50
+20 input b
+25 if b == 0 goto 50
+30 if b > a goto 40
+35 goto 20
+40 let a = b
+45 goto 20
+50 print a
+55 end
