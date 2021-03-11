@@ -1,14 +1,5 @@
 #!/bin/sh
 
-echo "
-##########################################
-#                 author                 #
-#             Wesley Adriann             #
-#                 github                 #
-#    https://github.com/wesleyadriann    #
-##########################################
-"
-
 echo "Deleting old version\n"
 rm *.out
 
