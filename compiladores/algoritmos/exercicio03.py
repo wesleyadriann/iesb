@@ -19,7 +19,7 @@ class Compiler():
         return tokens
 
     def add_in_called_state(self, state):
-        self.called_states.append(f'<q{state} `{self.tokens[self.token_index]}`>')
+        self.called_states.append(f'<q{state} `{self.current_token}`>')
 
     def qA(self):
         self.add_in_called_state('A')
