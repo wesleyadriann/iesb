@@ -64,8 +64,7 @@ Peso 3
 
 ```bash
 docker build . -t <container_tag>
-docker run -it <container_tag> sh
-python3 projeto01.py
+docker run <container_tag>
 ```
 <container_tag> é o nome que o container terá  
 

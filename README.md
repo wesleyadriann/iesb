@@ -21,6 +21,27 @@ Códigos, exercicios e trabalhos das disciplinas.
 - [Compiladores - 1/2021](./compiladores)
 - [Algoritmos Avulsos](./algoritmos_avulsos)
 
+## Rodando
+
+#### Docker (recomendado)
+```bash
+docker build . -t <container_tag>
+docker run -it <container_tag> sh
+```
+<container_tag> é o nome que o container terá.  
+
+#### Python
+```
+python3 <file_name>.py
+```
+#### C
+```
+./build.sh <file_name>.c <file_name_out>
+```
+<file_name> é o nome do arquivo.  
+<file_name_out> é o nome do arquivo após compilado.  
+
+
 ## 👥 Autores
 - [Wesley Adriann](https://github.com/WesleyAdriann/iesb/commits?author=WesleyAdriann)
   - Github: [wesleyadriann](https://github.com/WesleyAdriann)
