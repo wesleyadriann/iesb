@@ -8,7 +8,7 @@ int main() {
   int i, inicio = 10000;
   int entrada, qtd_primos_encontrados = 0;
   long long int *numeros;
-  long long int sum;
+  long long int sum_s = 0, sum_p = 0;
   double t1_s, t2_s, t1_p, t2_p;
 
   printf("Informe um numero inteiro positivo: ");
@@ -27,7 +27,13 @@ int main() {
     }
   }
 
-  sum = 0;
+  t1_s = omp_get_wtime();
+  for(i = 0; i < entrada; i++) {
+    sum_p += numeros[i];
+  }
+  t2_s = omp_get_wtime();
+
+
   t1_p = omp_get_wtime();
   #pragma omp parallel
   {
@@ -40,20 +46,17 @@ int main() {
 
     #pragma omp critical
     {
-      sum = sum + local_sum;
+      sum_p += local_sum;
     }
   }
   t2_p = omp_get_wtime();
 
-  sum = 0;
-  t1_s = omp_get_wtime();
-  for(i = 0; i < entrada; i++) {
-    sum = sum + numeros[i];
-  }
-  t2_s = omp_get_wtime();
-
-  printf("\nTempo paralelo: %lf", t2_p - t1_p);
-  printf("\nTempo sequencial: %lf", t2_s - t1_s);
+  printf("\nSequencial");
+  printf("\nSoma : %lld", sum_s);
+  printf("\nTempo: %lf\n", t2_s - t1_s);
+  printf("\nParalelo");
+  printf("\nSoma : %lld", sum_p);
+  printf("\nTempo: %lf\n", t2_p - t1_p);
 
   return 0;
 }

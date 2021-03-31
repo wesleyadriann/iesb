@@ -5,7 +5,9 @@
 
 int main() {
   long long int **matriz;
+  long long int sum_s = 0, sum_p = 0;
   int entrada, i, j;
+  double t1_s, t2_s, t1_p, t2_p;
   srand(time(0));
 
   printf("Informe um numero inteiro positivo: ");
@@ -27,13 +29,60 @@ int main() {
     matriz[0][i] = abs(rand());
   }
 
-  for(i = 0; i <= entrada; i++) {
-    for(j = 0; j <= entrada; j++) {
-      printf("%lld ", matriz[i][j]);
+  for(i = 1; i <= entrada; i++) {
+    for(j = 1; j <= entrada; j++) {
+      matriz[i][j] = matriz[i - 1][j] + matriz[i][j - 1];
     }
-    printf("\n");
   }
 
+
+  // for(i = 0; i <= entrada; i++) {
+  //   for(j = 0; j <= entrada; j++) {
+  //     printf("%lld ", matriz[i][j]);
+  //   }
+  //   printf("\n");
+  // }
+
+  t1_s = omp_get_wtime();
+  for(i = 1; i <= entrada; i++) {
+    for(j = 1; j <= entrada; j++) {
+      sum_s += matriz[i][j];
+    }
+  }
+  t2_s = omp_get_wtime();
+
+
+  t1_p = omp_get_wtime();
+  #pragma omp parallel
+  {
+    long long int local_sum = 0;
+    #pragma omp for
+    for(i = 0; i <= entrada; i++) {
+      for(j = 0; j <= entrada; j++) {
+        local_sum += matriz[i][j];
+      }
+    }
+
+    #pragma omp critical
+    {
+      sum_p += local_sum;
+    }
+  }
+  t2_p = omp_get_wtime();
+
+
+  printf("\nSequencial");
+  printf("\nSoma : %lld", sum_s);
+  printf("\nTempo: %lf\n", t2_s - t1_s);
+  printf("\nParalelo");
+  printf("\nSoma : %lld", sum_p);
+  printf("\nTempo: %lf\n", t2_p - t1_p);
+
+
+  for(i = 0; i <= entrada; i++) {
+    free(matriz[i]);
+  }
+  free(matriz);
 
   return 0;
 }
