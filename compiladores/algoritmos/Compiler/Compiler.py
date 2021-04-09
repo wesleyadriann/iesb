@@ -3,7 +3,7 @@
 
 from sys import argv
 
-from TabularPredictiveAnalysis import TabularPredictiveAnalysis
+from SyntaxAnalisys import SyntaxAnalisys
 
 class Compiler():
     file_path = ''
@@ -17,7 +17,7 @@ class Compiler():
         pass
 
     def syntax_analisys(self):
-        tabularPredictiveAnalysis = TabularPredictiveAnalysis()
+        syntax_analisys = SyntaxAnalisys(file_content)
 
     def semantic_analysis(self):
         pass
