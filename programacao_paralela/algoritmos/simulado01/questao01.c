@@ -29,7 +29,7 @@ int main() {
 
   t1_s = omp_get_wtime();
   for(i = 0; i < entrada; i++) {
-    sum_p += numeros[i];
+    sum_s += numeros[i];
   }
   t2_s = omp_get_wtime();
 
