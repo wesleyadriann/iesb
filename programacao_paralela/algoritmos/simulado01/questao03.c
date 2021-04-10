@@ -4,8 +4,8 @@
 #include "omp.h"
 
 int main() {
-  long long int **matriz;
-  long long int sum_s = 0, sum_p = 0;
+  long int **matriz;
+  long int sum_s = 0, sum_p = 0;
   int entrada, i, j;
   double t1_s, t2_s, t1_p, t2_p;
   srand(time(0));
@@ -19,9 +19,9 @@ int main() {
     return 1;
   }
 
-  matriz = (long long int**)malloc(entrada * sizeof(long long int));
+  matriz = (long int**)malloc(entrada * sizeof(long int));
   for(i = 0; i <= entrada; i++) {
-    matriz[i] = (long long int*)malloc(entrada * sizeof(long long int));
+    matriz[i] = (long int*)malloc(entrada * sizeof(long int));
   }
 
   for(i = 0; i <= entrada; i++) {
@@ -38,7 +38,7 @@ int main() {
 
   // for(i = 0; i <= entrada; i++) {
   //   for(j = 0; j <= entrada; j++) {
-  //     printf("%lld ", matriz[i][j]);
+  //     printf("%ld ", matriz[i][j]);
   //   }
   //   printf("\n");
   // }
@@ -55,7 +55,7 @@ int main() {
   t1_p = omp_get_wtime();
   #pragma omp parallel
   {
-    long long int local_sum = 0;
+    long int local_sum = 0;
     #pragma omp for
     for(i = 0; i <= entrada; i++) {
       for(j = 0; j <= entrada; j++) {
@@ -72,10 +72,10 @@ int main() {
 
 
   printf("\nSequencial");
-  printf("\nSoma : %lld", sum_s);
+  printf("\nSoma : %ld", sum_s);
   printf("\nTempo: %lf\n", t2_s - t1_s);
   printf("\nParalelo");
-  printf("\nSoma : %lld", sum_p);
+  printf("\nSoma : %ld", sum_p);
   printf("\nTempo: %lf\n", t2_p - t1_p);
 
 

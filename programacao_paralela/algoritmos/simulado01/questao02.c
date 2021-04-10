@@ -4,8 +4,8 @@
 #include "omp.h"
 
 int main() {
-  long int *numeros;
-  long long int sum_s = 0, sum_p = 0;
+  int *numeros;
+  int sum_s = 0, sum_p = 0;
   int entrada, i;
   double t1_s, t2_s, t1_p, t2_p;
   srand(time(0));
@@ -18,7 +18,7 @@ int main() {
     return 1;
   }
 
-  numeros = (long int *)malloc(entrada * sizeof(long int));
+  numeros = (int *)malloc(entrada * sizeof(int));
   for(i = 0; i < entrada; i++) {
     numeros[i] = abs(rand());
   }
@@ -33,7 +33,7 @@ int main() {
   t1_p = omp_get_wtime();
   #pragma omp parallel
   {
-    long long int mult_local = 0;
+    int mult_local = 0;
     #pragma omp for schedule(static, 1)
     for(i = 0; i < entrada; i = i + 2) {
       mult_local = abs(numeros[i] * numeros[i+1]);
@@ -48,10 +48,10 @@ int main() {
 
 
   printf("\nSequencial");
-  printf("\nSoma : %lld", sum_s);
+  printf("\nSoma : %d", sum_s);
   printf("\nTempo: %lf\n", t2_s - t1_s);
   printf("\nParalelo");
-  printf("\nSoma : %lld", sum_p);
+  printf("\nSoma : %d", sum_p);
   printf("\nTempo: %lf\n", t2_p - t1_p);
 
 

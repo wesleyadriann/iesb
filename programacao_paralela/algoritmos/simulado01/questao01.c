@@ -7,8 +7,8 @@ int valida_primo(int numero);
 int main() {
   int i, inicio = 10000;
   int entrada, qtd_primos_encontrados = 0;
-  long long int *numeros;
-  long long int sum_s = 0, sum_p = 0;
+  int *numeros;
+  int sum_s = 0, sum_p = 0;
   double t1_s, t2_s, t1_p, t2_p;
 
   printf("Informe um numero inteiro positivo: ");
@@ -19,7 +19,7 @@ int main() {
     return 1;
   }
 
-  numeros = (long long int *)malloc(entrada * sizeof(int));
+  numeros = (int *)malloc(entrada * sizeof(int));
   for(i = inicio; qtd_primos_encontrados <= entrada; i++) {
     if(valida_primo(i)) {
       numeros[qtd_primos_encontrados] = i;
@@ -37,7 +37,7 @@ int main() {
   t1_p = omp_get_wtime();
   #pragma omp parallel
   {
-    long long int local_sum = 0;
+    int local_sum = 0;
 
     #pragma omp for
     for(i = 0; i < entrada; i++) {
@@ -52,10 +52,10 @@ int main() {
   t2_p = omp_get_wtime();
 
   printf("\nSequencial");
-  printf("\nSoma : %lld", sum_s);
+  printf("\nSoma : %d", sum_s);
   printf("\nTempo: %lf\n", t2_s - t1_s);
   printf("\nParalelo");
-  printf("\nSoma : %lld", sum_p);
+  printf("\nSoma : %d", sum_p);
   printf("\nTempo: %lf\n", t2_p - t1_p);
 
   return 0;
