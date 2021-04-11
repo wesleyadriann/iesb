@@ -3,7 +3,11 @@
 
 from sys import argv
 
+from utils.logger import logger
 from SyntaxAnalisys import SyntaxAnalisys
+from LexicalAnalysis import LexicalAnalysis
+
+log = logger('Compiler')
 
 class Compiler():
     file_path = ''
@@ -12,12 +16,13 @@ class Compiler():
     def main(self, file):
         self.file_path = file_path
         self.read_file()
+        self.lexical_analysis()
 
     def lexical_analysis(self):
-        pass
+        lexical_analysis = LexicalAnalysis().main()
 
     def syntax_analisys(self):
-        syntax_analisys = SyntaxAnalisys(file_content)
+        syntax_analisys = SyntaxAnalisys().main()
 
     def semantic_analysis(self):
         pass
