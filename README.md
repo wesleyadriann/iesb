@@ -1,14 +1,18 @@
 
-IESB - Atividades
-============
-![](https://img.shields.io/github/languages/count/wesleyadriann/iesb?style=flat-square)
-![](https://img.shields.io/github/languages/top/wesleyadriann/iesb?style=flat-square)
-![](https://img.shields.io/github/last-commit/wesleyadriann/iesb?style=flat-square)
-![](https://img.shields.io/github/license/wesleyadriann/iesb?style=flat-square)
-![](https://img.shields.io/github/repo-size/wesleyadriann/iesb?style=flat-square)
+<h1 align="center">
+  IESB - Ciência da Computação 
+</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/github/languages/count/wesleyadriann/iesb?style=flat-square" />
+  <img src="https://img.shields.io/github/languages/top/wesleyadriann/iesb?style=flat-square" />
+  <img src="https://img.shields.io/github/last-commit/wesleyadriann/iesb?style=flat-square" />
+  <img src="https://img.shields.io/github/license/wesleyadriann/iesb?style=flat-square" />
+  <img src="https://img.shields.io/github/repo-size/wesleyadriann/iesb?style=flat-square" />
+</p>
 
 ## 📝 Descrição
-Códigos, exercicios e trabalhos das disciplinas.
+Códigos, exercicios e trabalhos das disciplinas do curso.
 
 ## 📄 Disciplinas
 
