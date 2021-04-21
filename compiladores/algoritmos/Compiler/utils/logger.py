@@ -8,7 +8,10 @@ def logger(name):
     logger.setLevel(logging.DEBUG)
     s_handler = logging.StreamHandler()
     f_handler = logging.FileHandler('logs.txt')
-    formatter = logging.Formatter('[%(levelname)s][%(name)s]:: %(message)s')
+    formatter = logging.Formatter(
+        '[{levelname}][{asctime}][{name}]:: {message}',
+        datefmt='%Y-%m-%d %H:%M:%S',
+        style='{')
     s_handler.setFormatter(formatter)
     f_handler.setFormatter(formatter)
     logger.addHandler(s_handler)

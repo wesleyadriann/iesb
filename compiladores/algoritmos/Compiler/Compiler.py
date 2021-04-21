@@ -1,7 +1,7 @@
 
 # -*- coding: utf-8 -*-
 
-from sys import argv
+from sys import argv, exc_info
 
 from utils.logger import logger
 from SyntaxAnalisys import SyntaxAnalisys
@@ -11,7 +11,7 @@ log = logger('Compiler')
 
 class Compiler():
     file_path = ''
-    file_content = []
+    file_content = ''
 
     def main(self, file):
         self.file_path = file_path
@@ -19,7 +19,8 @@ class Compiler():
         self.lexical_analysis()
 
     def lexical_analysis(self):
-        lexical_analysis = LexicalAnalysis().main()
+        log.info('inicio da analise lexica')
+        lexical_analysis = LexicalAnalysis().parser(self.file_content)
 
     def syntax_analisys(self):
         syntax_analisys = SyntaxAnalisys().main()
@@ -29,10 +30,16 @@ class Compiler():
 
     def read_file(self):
         file_r = open(self.file_path , "r")
-        file_content = file_r.read()
+        self.file_content = file_r.read()
         file_r.close()
-        self.file_content = file_content.split('\n')
 
 if (__name__ == '__main__'):
-    file_path = argv[1]
+    file_path = None
+    try:
+        file_path = argv[1]
+    except IndexError:
+        log.error('Informe o nome do arquivo a ser compilado')
+        log.error('Exemplo: ')
+        log.error('python3 Compiler.py simple.txt')
+        exit(1)
     Compiler().main(file_path)
