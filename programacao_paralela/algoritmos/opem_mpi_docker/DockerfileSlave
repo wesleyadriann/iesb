@@ -1,0 +1,5 @@
+FROM ubuntu:20.04
+
+RUN echo "slave"
+
+ENTRYPOINT bash

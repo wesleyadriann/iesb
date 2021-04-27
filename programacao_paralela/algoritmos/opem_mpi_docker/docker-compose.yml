@@ -1,0 +1,18 @@
+version: '3'
+services:
+  master:
+    build:
+      context: .
+      dockerfile: DockerfileMaster
+  slave1:
+    build:
+      context: .
+      dockerfile: DockerfileSlave
+    depends_on:
+      - master
+  slave2:
+    build:
+      context: .
+      dockerfile: DockerfileSlave
+    depends_on:
+      - master

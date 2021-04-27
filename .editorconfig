@@ -16,7 +16,7 @@ indent_style = space
 indent_size = 4
 
 # 2 space indentation
-[*.{c,h,cpp,hpp}]
+[*.{c,h,cpp,hpp, yml, js}]
 indent_style = space
 indent_size = 2
 
