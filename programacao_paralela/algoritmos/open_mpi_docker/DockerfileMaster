@@ -1,0 +1,22 @@
+FROM ubuntu:20.04
+
+RUN apt update && \
+    apt-get update && \
+    apt install curl build-essential openssh-server openssh-client -y
+
+ARG mpi_version=openmpi-4.1.1
+ARG mpi_download_path=v4.1/${mpi_version}.tar.gz
+
+RUN curl https://download.open-mpi.org/release/open-mpi/${mpi_download_path} -o opemmpi.tar.gz
+
+RUN tar -xzvf opemmpi.tar.gz
+
+RUN mkdir openmpi
+
+RUN /${mpi_version}/configure --prefix=$HOME/openmpi
+RUN cd /${mpi_version} && ls
+
+COPY ./master_entrypoint.sh .
+RUN chmod +x ./master_entrypoint.sh
+
+ENTRYPOINT sh master_entrypoint.sh
