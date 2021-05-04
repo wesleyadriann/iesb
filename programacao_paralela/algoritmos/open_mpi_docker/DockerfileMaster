@@ -1,8 +1,9 @@
 FROM ubuntu:20.04
 
 RUN apt update && \
-    apt-get update && \
-    apt install curl build-essential openssh-server openssh-client -y
+    apt-get update
+
+RUN apt install curl build-essential openssh-server openssh-client -y
 
 ARG mpi_version=openmpi-4.1.1
 ARG mpi_download_path=v4.1/${mpi_version}.tar.gz

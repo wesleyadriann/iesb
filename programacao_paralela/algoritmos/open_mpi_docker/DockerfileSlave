@@ -1,8 +1,9 @@
 FROM ubuntu:20.04
 
 RUN apt update && \
-    apt-get update && \
-    apt install curl build-essential openssh-server openssh-client -y
+    apt-get update
+
+RUN apt install curl build-essential openssh-server openssh-client -y
 
 COPY ./slave_entrypoint.sh .
 RUN chmod +x ./slave_entrypoint.sh
