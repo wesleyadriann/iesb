@@ -1,11 +1,61 @@
 FROM ubuntu:20.04
 
-RUN apt update && \
-    apt-get update
+LABEL maintainer="Wesley Adriann <wesleyadriann@gmail.com>"
 
-RUN apt install curl build-essential openssh-server openssh-client -y
+ARG USERNAME=mpiuser
+
+ENV HOME /home/${USER}
+ENV TZ America/New_York
+env DEBIAN_FRONTEND noninteractive
+
+RUN apt-get update && \
+    apt-get upgrade
+
+RUN apt-get install -y \
+        iputils-ping \
+        openssh-server \
+        openssh-client \
+        nfs-common \
+        gcc \
+        openmpi-bin \
+        openmpi-common \
+        libopenmpi-dev \
+        libgtk2.0-dev \
+        wget
+
+RUN useradd ${USERNAME}} \
+    && mkdir -p ${HOME} \
+    && mkdir -p ${HOME}/.ssh
+
+RUN chmod 700 ${HOME}/.ssh
+
+RUN echo 'PubkeyAuthentication yes\n\
+		RSAAuthentication yes\n \
+		AuthorizedKeysFile .ssh/authorized_keys .ssh/authorized_keys2' >> /etc/ssh/sshd_config
+
+RUN mkdir -p ${HOME}/openmpi/pasta_compartilhada
+
+ARG mpi_version=openmpi-4.1.1
+ARG mpi_download_path=v4.1/${mpi_version}.tar.gz
+
+RUN wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.1.tar.gz
+RUN tar -xzvf openmpi-4.1.1.tar.gz
+
+RUN cd openmpi-4.1.1 && \
+    ./configure --prefix="${HOME}/.openmpi" --build=x86_64 \
+    make \
+    make install
+
+RUN echo "$PATH:${HOME}/.openmpi/bin" >> ${HOME}/.bashrc \
+    echo "$LD_LIBRARY_PATH:${HOME}/.openmpi/lib" >> ${HOME}/.bashrc
+
+COPY ./mpi-hosts ${HOME}/openmpi/pasta_compartilhada/
+
+USER ${USER}
+RUN whoami
 
 COPY ./slave_entrypoint.sh .
-RUN chmod +x ./slave_entrypoint.sh
+RUN sudo chmod +x ./slave_entrypoint.sh
 
+EXPOSE 22
 ENTRYPOINT sh slave_entrypoint.sh

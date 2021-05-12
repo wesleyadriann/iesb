@@ -4,15 +4,17 @@ services:
     build:
       context: .
       dockerfile: DockerfileMaster
-  slave1:
+    networks:
+      - mpi_network
+  slave:
     build:
       context: .
       dockerfile: DockerfileSlave
+    networks:
+        - mpi_network
     depends_on:
       - master
-  slave2:
-    build:
-      context: .
-      dockerfile: DockerfileSlave
-    depends_on:
-      - master
+
+networks:
+  mpi_network:
+    driver: bridge
