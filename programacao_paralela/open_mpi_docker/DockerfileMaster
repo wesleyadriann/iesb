@@ -4,9 +4,12 @@ LABEL maintainer="Wesley Adriann <wesleyadriann@gmail.com>"
 
 ARG USERNAME=mpiuser
 
-ENV HOME /home/${USER}
+ENV HOME /home/${USERNAME}
 ENV TZ America/New_York
-env DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND noninteractive
+ENV PATH ${PATH}:${HOME}/.openmpi/bin
+ENV LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${HOME}}/.openmpi/lin
+
 
 RUN apt-get update && \
     apt-get upgrade
@@ -44,20 +47,17 @@ RUN exportfs -a
 ARG mpi_version=openmpi-4.1.1
 ARG mpi_download_path=v4.1/${mpi_version}.tar.gz
 
-RUN wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.1.tar.gz
-RUN tar -xzvf openmpi-4.1.1.tar.gz
+RUN wget https://download.open-mpi.org/release/open-mpi/${mpi_download_path}
+RUN tar -xzvf ${mpi_version}.tar.gz
 
 RUN cd openmpi-4.1.1 && \
     ./configure --prefix="${HOME}/.openmpi" --build=x86_64 \
     make \
     make install
 
-RUN echo "$PATH:${HOME}/.openmpi/bin" >> ${HOME}/.bashrc \
-    echo "$LD_LIBRARY_PATH:${HOME}/.openmpi/lib" >> ${HOME}/.bashrc
-
 COPY ./mpi-hosts ${HOME}/openmpi/pasta_compartilhada/
 
-USER ${USER}
+USER ${USERNAME}
 RUN whoami
 
 COPY ./master_entrypoint.sh .
