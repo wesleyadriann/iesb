@@ -24,6 +24,7 @@ Códigos, exercicios e trabalhos das disciplinas do curso.
 - [Inteligência Artificial II - 2/2020](./ia2)
 - [Programação Paralela - 1/2021](./programacao_paralela)
 - [Compiladores - 1/2021](./compiladores)
+- [Topicos de Banco de Dados - 1/2021](./topicos_bd)
 - [Algoritmos Avulsos](./algoritmos_avulsos)
 
 ## Rodando
