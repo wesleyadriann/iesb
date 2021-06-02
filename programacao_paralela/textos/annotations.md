@@ -1,1 +1,0 @@
-wip - write invalidate protocolo
