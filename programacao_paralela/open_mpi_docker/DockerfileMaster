@@ -24,7 +24,8 @@ RUN apt-get install -y \
         openmpi-common \
         libopenmpi-dev \
         libgtk2.0-dev \
-        wget
+        wget \
+        git
 
 RUN useradd ${USERNAME}} \
     && mkdir -p ${HOME} \
@@ -44,16 +45,20 @@ RUN echo '${HOME}/openmpi/pasta_compartilhada slave(rw,sync,no_subtree_check)' >
 
 RUN exportfs -a
 
-ARG mpi_version=openmpi-4.1.1
-ARG mpi_download_path=v4.1/${mpi_version}.tar.gz
+# ARG mpi_version=openmpi-4.1.1
+# ARG mpi_download_path=v4.1/${mpi_version}.tar.gz
 
-RUN wget https://download.open-mpi.org/release/open-mpi/${mpi_download_path}
-RUN tar -xzvf ${mpi_version}.tar.gz
+# RUN wget https://download.open-mpi.org/release/open-mpi/${mpi_download_path}
+# RUN tar -xzvf ${mpi_version}.tar.gz
 
-RUN cd openmpi-4.1.1 && \
-    ./configure --prefix="${HOME}/.openmpi" --build=x86_64 \
-    make \
-    make install
+# RUN cd openmpi-4.1.1 && \
+#     ./configure --prefix="${HOME}/.openmpi" --build=x86_64 \
+#     make \
+#     make install
+
+RUN git clone https://github.com/Microsoft/vcpkg.git
+RUN ./vcpkg/bootstrap-vcpkg.sh
+RUN ./vcpkg/vcpkg install openmpi
 
 COPY ./mpi-hosts ${HOME}/openmpi/pasta_compartilhada/
 
