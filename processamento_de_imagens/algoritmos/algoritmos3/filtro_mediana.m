@@ -5,8 +5,8 @@ function nova_imagem = filtro_mediana(imagem, janela)
 
     for linha = 1:altura_imagem
         for coluna = 1:largura_imagem
-            sub_matrix_janela = sub_matriz(imagem, linha, coluna, janela);
-            mediana = median(sub_matrix_janela(:));
+            sub_matriz_janela = sub_matriz(imagem, linha, coluna, janela);
+            mediana = median(sub_matriz_janela(:));
             imagem_mediana(linha, coluna) = mediana;
         end
     end
