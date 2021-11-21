@@ -1,6 +1,6 @@
-function sub = sub_matriz(imagem, linha, coluna, janela)
-    matriz = zeros(janela, janela);
-    range_vizinho = fix(janela/2);
+function sub = sub_matriz(imagem, linha, coluna, ordem)
+    matriz = zeros(ordem, ordem);
+    range_vizinho = fix(ordem/2);
     i = 0;
     for linha_i = (linha-range_vizinho):(linha+range_vizinho)
         i++;
