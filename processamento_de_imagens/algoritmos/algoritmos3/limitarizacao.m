@@ -1,4 +1,3 @@
-
 function imagem_limiarizada = limitarizacao(imagem_original)
     [largura, altura] = size(imagem_original);
 

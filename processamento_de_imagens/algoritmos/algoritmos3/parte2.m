@@ -14,7 +14,7 @@ imagem_base = double(rgb2gray(imagem_original))/255;
 % Formas Principais
 % -----
 
-ordem = 3;
+ordem = 15;
 
 "formas principais"
 mascara_media = ones(ordem, ordem);

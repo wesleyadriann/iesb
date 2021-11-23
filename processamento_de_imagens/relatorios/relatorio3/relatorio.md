@@ -194,31 +194,368 @@ Também é possível visualizar o problema de alteração de cores, devido o sal
 ##### Ordem 3
 Sal & Pimenta   | Média  | Mediana 
 ------          | ------ | ------ 
-0,05            | 19.941 | 29.264
-0,10            | 17.372 | 27.464
-0,15            | 15.630 | 25.586
-0,20            | 15.691 | 25.312
+0,05            | 19,941 | 29,264
+0,10            | 17,372 | 27,464
+0,15            | 15,630 | 25,586
+0,20            | 15,691 | 25,312
 
 ##### Ordem 5
 Sal & Pimenta   | Mediana  
 ------          | ------  
-0,05            | 26.013
-0,10            | 25.221
-0,15            | 24.367
-0,20            | 23.293
+0,05            | 26,013
+0,10            | 25,221
+0,15            | 24,367
+0,20            | 23,293
 
 ##### Ordem 7
 Sal & Pimenta   | Média  
 ------          | ------  
-0,05            | 20.204
-0,10            | 19.189
-0,15            | 18.084
-0,20            | 17.177
+0,05            | 20,204
+0,10            | 19,189
+0,15            | 18,084
+0,20            | 17,177
 
 ##### Ordem 15
 Sal & Pimenta   | Média  
 ------          | ------  
-0,05            | 17.160
-0,10            | 16.793
-0,15            | 16.376
-0,20            | 15.921
+0,05            | 17,160
+0,10            | 16,793
+0,15            | 16,376
+0,20            | 15,921
+
+
+### Obtenção de Formas Principais e de Contornos Principais
+
+#### Algoritmo
+```m
+% -----
+% Parte 2
+% Formas principais
+% -----
+
+pkg load image
+
+"parte 2 iniciada"
+imagem_original = imread('./imagem_base.jpg');
+
+imagem_base = double(rgb2gray(imagem_original))/255;
+
+% -----
+% Formas Principais
+% -----
+
+ordem = 3;
+
+"formas principais"
+mascara_media = ones(ordem, ordem);
+mascara_media = mascara_media.*(1/(ordem*ordem));
+
+imagem_media = conv2(imagem_base, mascara_media, 'same');
+formas_principais = limitarizacao(imagem_media);
+
+% -----
+% Contornos Principais
+% -----
+
+"contornos principais"
+laplaciano = [-1 -1 -1; -1 8 -1; -1 -1 -1];
+passa_alta_laplaciano = conv2(formas_principais, laplaciano);
+contornos_principais = abs(passa_alta_laplaciano);
+```
+
+Aqui para a obtenção das formas principais, reutilizamos o filtro de média da parte 1, onde da mesma maneira é definida uma ordem, em sequência  utilizamos um algoritmo auxiliar para a limiarização da imagem.
+
+
+```m
+function imagem_limiarizada = limitarizacao(imagem_original)
+    [largura, altura] = size(imagem_original);
+
+    for linha = 1:altura
+        for coluna = 1:largura
+            pixel = 0;
+            if(imagem_original(linha, coluna) >= 0.5)
+                pixel = 1;
+            end
+            imagem_original(linha, coluna) = pixel;
+        end
+    end
+
+    "limitarizacao completo"
+
+imagem_limiarizada = imagem_original;
+```
+
+De maneira simples, é feito uma iteração na imagem, e caso o pixel tenha valor maior ou igual a 0.5 ele é substituído por 1, caso contrário por 0.
+
+Apos a limiarização a parte de formas principais é concluída e como os primeiros passos dos contornos são os mesmos, reutilizamos os passos que já foram executados.
+
+Então, utilizando a função conv2 do octave, aplicamos um filtro passa alta laplaciano nas formas principais, e por fim transformamos os valores da matriz para valores absolutos, para removermos os números negativos devido a mascara laplaciano.
+
+#### Resultados
+##### Formas principais
+
+Formas principais de ordem 3, 7 e 15
+<p align="center">
+  <img src="./images/doge_formas3.jpg" width="200px">
+  <img src="./images/doge_formas7.jpg" width="200px"><br/>
+  <img src="./images/doge_formas15.jpg" width="200px">
+</p>
+
+##### Contornos principais
+Formas principais de ordem 3, 7 e 15
+<p align="center">
+  <img src="./images/doge_contornos3.jpg" width="200px">
+  <img src="./images/doge_contornos7.jpg" width="200px"><br/>
+  <img src="./images/doge_contornos15.jpg" width="200px">
+</p>
+
+Nos níveis de ordem 3, ainda é possível ver detalhes, principalmente relacionados ao rosto do cachorro, e aumentar, todos os detalhes se perdem e não é possível determinar qual era a imagem original. 
+
+
+
+### Realce de bordas com unsharp masking
+
+#### Algoritmo
+
+```m
+% -----
+% Parte 3
+% Realce de bordas unsharp masking
+% -----
+
+pkg load image
+
+"parte 3 iniciada"
+imagem_original = imread('./imagem_base.jpg');
+imagem_base = double(rgb2gray(imagem_original))/255;
+
+ganho = 1;
+
+ordem = 3;
+
+mascara_media = ones(ordem, ordem);
+mascara_media = mascara_media.*(1/(ordem*ordem));
+
+imagem_media = conv2(imagem_base, mascara_media, 'same');
+
+filtragem_passa_baixa = imagem_base.*imagem_media;
+bordas = imagem_base - filtragem_passa_baixa;
+imagem_unsharp_masking = imagem_base + (ganho * bordas);
+
+```
+Para o unsharp masking, seguimos com o filtro de media desenvolvido na primeira parte, e adicionamos uma variavel para o ganho que o unsharp masking irá aplicar. Então é feito os passos do filtro, aplicando o passa baixa, fazendo a multiplicação ponto a ponto das imagens, em seguida feito a diferença para a obtenção das bordas e por fim a soma com a multiplicação das bordas com o ganho.
+
+#### Resultados
+
+Bordas realçadas com ganho de 1 e passa baixa com ordem 3, 7 e 15
+<p align="center">
+  <img src="./images/doge_unsharp1_3.jpg" width="200px">
+  <img src="./images/doge_unsharp1_7.jpg" width="200px"><br/>
+  <img src="./images/doge_unsharp1_15.jpg" width="200px">
+</p>
+
+Bordas realçadas com ganho de 1.2 e passa baixa com ordem 3, 7 e 15
+<p align="center">
+  <img src="./images/doge_unsharp12_3.jpg" width="200px">
+  <img src="./images/doge_unsharp12_7.jpg" width="200px"><br/>
+  <img src="./images/doge_unsharp12_15.jpg" width="200px">
+</p>
+
+Bordas realçadas com ganho de 1.5 e passa baixa com ordem 3, 7 e 15
+<p align="center">
+  <img src="./images/doge_unsharp15_3.jpg" width="200px">
+  <img src="./images/doge_unsharp15_7.jpg" width="200px"><br/>
+  <img src="./images/doge_unsharp15_15.jpg" width="200px">
+</p>
+
+É fácil de visualizar que o filtro unsharp masking, deve-se ter um cuidado, já que com uma pouca quantidade, como ocorre no 1.5, a imagem pode ficar brilho estourado, como ocorre principalmente no rosto do cachorro. Porem também é interessante notar que a combinação do filtro passa baixa de ordem alta, consegue equilibrar e trazer uma maior quantidade de detalhes na imagem, como é possível ver em ordem 15 para os 3 níveis de ganho.
+
+
+### Conclusões gerais
+
+É impressionante ver esses filtros na prática, em destaque no de mediana, pois imagens que visualmente parecem estar perdidas, voltam a algo muito próximo ao original. E começar a misturar esses filtros pode ser possível trazer ainda uma melhoria maior a essas imagens que possuem algum resquício de ruido. 
+
+### Algoritmos
+
+#### Parte 1
+
+parte1.m
+```m
+% -----
+% Parte 1
+% Filtro de media e mediana
+% -----
+
+pkg load image
+
+"parte 1 iniciada"
+imagem_original = imread('./imagem_base.jpg');
+
+ruido = 0.2;
+
+imagem_base = double(rgb2gray(imagem_original))/255;
+imagem_ruidosa = imnoise(imagem_base,  'salt & pepper', ruido);
+
+ordem = 15;
+
+"media"
+mascara_media = ones(ordem, ordem);
+mascara_media = mascara_media.*(1/(ordem*ordem));
+
+imagem_media = conv2(imagem_ruidosa, mascara_media, 'same');
+
+"mediana"
+% imagem_mediana = filtro_mediana(imagem_ruidosa, ordem);
+
+"snr"
+snr_conv2 = snr(imagem_base, imagem_media)
+% snr_mediana = snr(imagem_base, imagem_mediana)
+```
+
+filtro_mediana.m
+```m
+function nova_imagem = filtro_mediana(imagem, ordem)
+
+    [largura_imagem, altura_imagem] = size(imagem);
+    imagem_mediana = zeros(largura_imagem, altura_imagem);
+
+    for linha = 1:altura_imagem
+        for coluna = 1:largura_imagem
+            sub_matriz_ordem = sub_matriz(imagem, linha, coluna, ordem);
+            mediana = median(sub_matriz_ordem(:));
+            imagem_mediana(linha, coluna) = mediana;
+        end
+    end
+    "filtro de mediana completo"
+
+nova_imagem = imagem_mediana;
+```
+
+sub_matriz.m
+```m
+function sub = sub_matriz(imagem, linha, coluna, ordem)
+    matriz = zeros(ordem, ordem);
+    range_vizinho = fix(ordem/2);
+    i = 0;
+    for linha_i = (linha-range_vizinho):(linha+range_vizinho)
+        i++;
+        j = 0;
+        for coluna_j = (coluna-range_vizinho):(coluna+range_vizinho)
+            j++;
+            try
+                matriz(i,j) = imagem(linha_i,coluna_j);
+            catch
+            end
+        end
+    end
+sub = matriz;
+```
+
+snr.m
+```m
+function snr_resultado = snr(imagem_perfeita, imagem_ruidosa)
+    [largura, altura] = size(imagem_perfeita);
+
+    erro_relativo = 0;
+    a = 0;
+    b = 0;
+    for linha = 1:altura
+        for coluna = 1:largura
+            a = a + power(imagem_perfeita(linha, coluna) - imagem_ruidosa(linha, coluna), 2);
+            b = b + power(imagem_perfeita(linha, coluna), 2);
+        end
+    end
+    erro_relativo = a/b;
+    snr_calc = 10 * log10(1/erro_relativo);
+    "snr completo"
+
+snr_resultado = snr_calc;
+```
+
+#### Parte 2
+parte2.m
+```m
+% -----
+% Parte 2
+% Formas principais
+% -----
+
+pkg load image
+
+"parte 2 iniciada"
+imagem_original = imread('./imagem_base.jpg');
+
+imagem_base = double(rgb2gray(imagem_original))/255;
+
+% -----
+% Formas Principais
+% -----
+
+ordem = 15;
+
+"formas principais"
+mascara_media = ones(ordem, ordem);
+mascara_media = mascara_media.*(1/(ordem*ordem));
+
+imagem_media = conv2(imagem_base, mascara_media, 'same');
+formas_principais = limitarizacao(imagem_media);
+
+
+% -----
+% Contornos Principais
+% -----
+
+"contornos principais"
+laplaciano = [-1 -1 -1; -1 8 -1; -1 -1 -1];
+passa_alta_laplaciano = conv2(formas_principais, laplaciano);
+contornos_principais = abs(passa_alta_laplaciano);
+```
+limitarizacao.m
+```m
+function imagem_limiarizada = limitarizacao(imagem_original)
+    [largura, altura] = size(imagem_original);
+
+    for linha = 1:altura
+        for coluna = 1:largura
+            pixel = 0;
+            if(imagem_original(linha, coluna) >= 0.5)
+                pixel = 1;
+            end
+            imagem_original(linha, coluna) = pixel;
+        end
+    end
+
+    "limitarizacao completo"
+
+imagem_limiarizada = imagem_original;
+
+```
+
+#### Parte 3
+parte3.m
+```m
+% -----
+% Parte 3
+% Realce de bordas unsharp masking
+% -----
+
+pkg load image
+
+"parte 3 iniciada"
+imagem_original = imread('./imagem_base.jpg');
+imagem_base = double(rgb2gray(imagem_original))/255;
+
+ganho = 1.5;
+
+ordem = 15;
+
+mascara_media = ones(ordem, ordem);
+mascara_media = mascara_media.*(1/(ordem*ordem));
+
+imagem_media = conv2(imagem_base, mascara_media, 'same');
+
+filtragem_passa_baixa = imagem_base.*imagem_media;
+bordas = imagem_base - filtragem_passa_baixa;
+imagem_unsharp_masking = imagem_base + (ganho * bordas);
+
+```

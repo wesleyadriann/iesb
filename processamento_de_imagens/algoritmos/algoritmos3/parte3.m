@@ -9,9 +9,9 @@ pkg load image
 imagem_original = imread('./imagem_base.jpg');
 imagem_base = double(rgb2gray(imagem_original))/255;
 
-ganho = 1;
+ganho = 1.5;
 
-ordem = 3;
+ordem = 15;
 
 mascara_media = ones(ordem, ordem);
 mascara_media = mascara_media.*(1/(ordem*ordem));
