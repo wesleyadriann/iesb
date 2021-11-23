@@ -1,4 +1,3 @@
-
 function snr_resultado = snr(imagem_perfeita, imagem_ruidosa)
     [largura, altura] = size(imagem_perfeita);
 
