@@ -25,13 +25,13 @@ void xTaskEntradaDados (void *pvParameters);
 void ligaBuzzerELed ();
 void desligaBuzzer ();
 void desligaLed ();
-void reset_prints ();
+void resetPrints ();
 
 // handler das tasks
 TaskHandle_t taskSensorTemperatura = NULL;
 TaskHandle_t taskSensorFumaca = NULL;
 TaskHandle_t taskSensorTensao = NULL;
-TaskHandle_t taskSensorChave = NULL;
+TaskHandle_t taskEntradaDados = NULL;
 
 // instancia do mutex
 SemaphoreHandle_t xSemaphoreMutex;
@@ -60,7 +60,7 @@ void setup () {
     "TASK_SENSORTEMPERATURA",
     configMINIMAL_STACK_SIZE + 64,
     ( void * ) 1,
-    1,
+    configMAX_PRIORITIES - 1,
     &taskSensorTemperatura
   );
 
@@ -69,7 +69,7 @@ void setup () {
     "TASK_SENSORFUMACA",
     configMINIMAL_STACK_SIZE + 64,
     ( void * ) 1,
-    1,
+    configMAX_PRIORITIES - 1,
     &taskSensorFumaca
   );
 
@@ -78,7 +78,7 @@ void setup () {
     "TASK_SENSORTENSAO",
     configMINIMAL_STACK_SIZE + 64,
     ( void * ) 1,
-    1,
+    configMAX_PRIORITIES,
     &taskSensorTensao
   );
 
@@ -87,8 +87,8 @@ void setup () {
     "TASK_ENTRADADADOS",
     configMINIMAL_STACK_SIZE + 128,
     ( void * ) 1,
-    1,
-    &taskSensorChave
+    configMAX_PRIORITIES - 2,
+    &taskEntradaDados
   );
 }
 
@@ -119,7 +119,7 @@ void desligaLed () {
 }
 
 // função para resetar os prints dos sensores
-void reset_prints () {
+void resetPrints () {
   temperatura_printado = 0;
   fumaca_printado = 0;
   tensao_printado = 0;
@@ -189,7 +189,7 @@ void xTaskEntradaDados (void *pvParameters) {
     }
 
     if(digitalRead(BOTAO_DESLIGA_LED) === HIGH) {
-      reset_prints();
+      resetPrints();
       desligaLed();
     }
     vTaskDelay(pdMS_TO_TICKS(200));
