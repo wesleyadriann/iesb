@@ -1,2 +1,2 @@
-Sistemas em tempo real - 2/2021
+Sistemas de Tempo Real - 2/2021
 ===

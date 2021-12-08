@@ -1,4 +1,4 @@
-Linguagens Formais e Autômatos - LFA - 2/2020
+Linguagens Formais e Autômatos - 2/2020
 ===
 
 ## Exercicios

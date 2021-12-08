@@ -1,4 +1,4 @@
-Analise de Algoritmos - 1/2020
+Análise de Algorítmos - 1/2020
 ===
 
 ## Exercicios

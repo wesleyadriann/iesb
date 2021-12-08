@@ -16,16 +16,17 @@ Códigos, exercicios e trabalhos das disciplinas do curso.
 
 ## 📄 Disciplinas
 
-- [Teoria dos grafos - 2/2019](./teoria_dos_grafos)
+- [Teoria dos Grafos - 2/2019](./teoria_dos_grafos)
 - [Computação Gráfica - 1/2020](./computacao_grafica)
-- [Paradigmas de linguagem de programação - 1/2020](./plp)
-- [Analise de Algoritmos - 1/2020](./analise_de_algoritmos)
+- [Paradigmas de Linguagem de Programação - 1/2020](./plp)
+- [Análise de Algorítmos - 1/2020](./analise_de_algoritmos)
 - [Linguagens Formais e Autômatos - 2/2020](./lfa)
 - [Inteligência Artificial II - 2/2020](./ia2)
 - [Programação Paralela - 1/2021](./programacao_paralela)
 - [Compiladores - 1/2021](./compiladores)
-- [Topicos de Banco de Dados - 1/2021](./topicos_bd)
+- [Tópicos em Banco de Dados - 1/2021](./topicos_bd)
 - [Processamento de Imagens - 2/2021](./processamento_de_imagens)
+- [Sistemas de Tempo Real - 2/2021](./str)
 - [Algoritmos Avulsos](./algoritmos_avulsos)
 
 ## Rodando

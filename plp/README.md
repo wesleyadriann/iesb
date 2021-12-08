@@ -1,4 +1,4 @@
-Paradigmas de lingaugem de programação - PLP - 1/2020
+Paradigmas de Linguagem de Programação- 1/2020
 ===
 
 ## Exercicios

@@ -1,4 +1,4 @@
-Teoria dos grafos - 2/2019
+Teoria dos Grafos - 2/2019
 ===
 
 ## Exercicios
